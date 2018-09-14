@@ -1,0 +1,128 @@
+NumPy - 矩阵库
+NumPy 包包含一个 Matrix库numpy.matlib。此模块的函数返回矩阵而不是返回ndarray对象。
+matlib.empty()
+matlib.empty()函数返回一个新的矩阵，而不初始化元素。 该函数接受以下参数。
+numpy.matlib.empty(shape, dtype, order)
+Python
+其中：
+序号
+参数及描述
+1.
+shape 定义新矩阵形状的整数或整数元组
+2.
+Dtype 可选，输出的数据类型
+3.
+order C 或者 F
+示例
+import numpy.matlib
+import numpy as np
+print np.matlib.empty((2,2))
+# 填充为随机数据
+Python
+输出如下：
+[[ 2.12199579e-314,   4.24399158e-314]
+ [ 4.24399158e-314,   2.12199579e-314]]
+Python
+numpy.matlib.zeros()
+此函数返回以零填充的矩阵。
+import numpy.matlib
+import numpy as np
+print np.matlib.zeros((2,2))
+Python
+输出如下：
+[[ 0.  0.]
+ [ 0.  0.]])
+Python
+numpy.matlib.ones()
+此函数返回以一填充的矩阵。
+import numpy.matlib
+import numpy as np
+print np.matlib.ones((2,2))
+Python
+输出如下：
+[[ 1.  1.]
+ [ 1.  1.]]
+Python
+numpy.matlib.eye()
+这个函数返回一个矩阵，对角线元素为 1，其他位置为零。 该函数接受以下参数。
+numpy.matlib.eye(n, M,k, dtype)
+Python
+其中：
+序号
+参数及描述
+1.
+n 返回矩阵的行数
+2.
+M 返回矩阵的列数，默认为n
+3.
+k 对角线的索引
+4.
+dtype 输出的数据类型
+示例
+import numpy.matlib
+import numpy as np
+print np.matlib.eye(n =  3, M =  4, k =  0, dtype =  float)
+Python
+输出如下：
+[[ 1.  0.  0.  0.]
+ [ 0.  1.  0.  0.]
+ [ 0.  0.  1.  0.]])
+Python
+numpy.matlib.identity()
+numpy.matlib.identity()函数返回给定大小的单位矩阵。单位矩阵是主对角线元素都为 1 的方阵。
+import numpy.matlib
+import numpy as np
+print np.matlib.identity(5, dtype =  float)
+Python
+输出如下：
+[[ 1.  0.  0.  0.  0.]
+ [ 0.  1.  0.  0.  0.]
+ [ 0.  0.  1.  0.  0.]
+ [ 0.  0.  0.  1.  0.]
+ [ 0.  0.  0.  0.  1.]]
+Python
+numpy.matlib.rand()
+·numpy.matlib.rand()`函数返回给定大小的填充随机值的矩阵。
+示例
+import numpy.matlib
+import numpy as np
+print np.matlib.rand(3,3)
+Python
+输出如下：
+[[ 0.82674464  0.57206837  0.15497519]
+ [ 0.33857374  0.35742401  0.90895076]
+ [ 0.03968467  0.13962089  0.39665201]]
+Python
+注意，矩阵总是二维的，而ndarray是一个 n 维数组。 两个对象都是可互换的。
+示例
+import numpy.matlib
+import numpy as np
+
+i = np.matrix('1,2;3,4')
+print i
+Python
+输出如下：
+[[1  2]
+ [3  4]]
+Python
+示例
+import numpy.matlib
+import numpy as np
+
+j = np.asarray(i)
+print j
+Python
+输出如下：
+[[1  2]
+ [3  4]]
+Python
+示例
+import numpy.matlib
+import numpy as np
+
+k = np.asmatrix (j)
+print k
+Python
+输出如下：
+[[1  2]
+ [3  4]]

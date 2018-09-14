@@ -1,0 +1,192 @@
+NumPy - 位操作
+下面是 NumPy 包中可用的位操作函数。
+序号
+操作及描述
+1.
+bitwise_and 对数组元素执行位与操作
+2.
+bitwise_or 对数组元素执行位或操作
+3.
+invert 计算位非
+4.
+left_shift 向左移动二进制表示的位
+5.
+right_shift 向右移动二进制表示的位
+bitwise_and
+通过np.bitwise_and()函数对输入数组中的整数的二进制表示的相应位执行位与运算。
+例子
+import numpy as np
+print '13 和 17 的二进制形式：'
+a,b = 13,17
+print bin(a), bin(b)
+print '\n'
+
+print '13 和 17 的位与：'
+print np.bitwise_and(13, 17)
+输出如下：
+13 和 17 的二进制形式：
+0b1101 0b10001
+
+13 和 17 的位与：
+1
+你可以使用下表验证此输出。 考虑下面的位与真值表。
+A
+B
+AND
+1
+1
+1
+1
+0
+0
+0
+1
+0
+0
+0
+0
+
+
+1
+1
+0
+1
+AND
+
+1
+0
+0
+0
+1
+result
+0
+0
+0
+0
+1
+bitwise_or
+通过np.bitwise_or()函数对输入数组中的整数的二进制表示的相应位执行位或运算。
+例子
+import numpy as np
+a,b = 13,17
+print '13 和 17 的二进制形式：'
+print bin(a), bin(b)
+
+print '13 和 17 的位或：'
+print np.bitwise_or(13, 17)
+输出如下：
+13 和 17 的二进制形式：
+0b1101 0b10001
+
+13 和 17 的位或：
+29
+你可以使用下表验证此输出。 考虑下面的位或真值表。
+A
+B
+OR
+1
+1
+1
+1
+0
+1
+0
+1
+1
+0
+0
+0
+
+
+1
+1
+0
+1
+OR
+
+1
+0
+0
+0
+1
+result
+1
+1
+1
+0
+1
+invert
+此函数计算输入数组中整数的位非结果。 对于有符号整数，返回补码。
+例子
+import numpy as np
+
+print '13 的位反转，其中 ndarray 的 dtype 是 uint8：'
+print np.invert(np.array([13], dtype = np.uint8))
+print '\n'
+# 比较 13 和 242 的二进制表示，我们发现了位的反转
+
+print '13 的二进制表示：'
+print np.binary_repr(13, width = 8)
+print '\n'
+
+print '242 的二进制表示：'
+print np.binary_repr(242, width = 8)
+输出如下：
+13 的位反转，其中 ndarray 的 dtype 是 uint8：
+[242]
+
+13 的二进制表示：
+00001101
+
+242 的二进制表示：
+11110010
+请注意，np.binary_repr()函数返回给定宽度中十进制数的二进制表示。
+left_shift
+numpy.left shift()函数将数组元素的二进制表示中的位向左移动到指定位置，右侧附加相等数量的 0。
+例如，
+import numpy as np
+
+print '将 10 左移两位：'
+print np.left_shift(10,2)
+print '\n'
+
+print '10 的二进制表示：'
+print np.binary_repr(10, width = 8)
+print '\n'
+
+print '40 的二进制表示：'
+print np.binary_repr(40, width = 8)
+#  '00001010' 中的两位移动到了左边，并在右边添加了两个 0。
+输出如下：
+将 10 左移两位：
+40
+
+10 的二进制表示：
+00001010
+
+40 的二进制表示：
+00101000
+right_shift
+numpy.right_shift()函数将数组元素的二进制表示中的位向右移动到指定位置，左侧附加相等数量的 0。
+import numpy as np
+
+print '将 40 右移两位：'
+print np.right_shift(40,2)
+print '\n'
+
+print '40 的二进制表示：'
+print np.binary_repr(40, width = 8)
+print '\n'
+
+print '10 的二进制表示：'
+print np.binary_repr(10, width = 8)
+#  '00001010' 中的两位移动到了右边，并在左边添加了两个 0。
+输出如下：
+将 40 右移两位：
+10
+
+40 的二进制表示：
+00101000
+
+10 的二进制表示：
+00001010

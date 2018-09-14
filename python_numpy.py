@@ -1,7 +1,23 @@
-__author__ = 'yxz'
 import numpy as np
+from numpy import matlib
+from numpy import lib
+from matplotlib import pyplot as plt
+# https://www.yiibai.com/numpy
 
-print(np.array([1,2,3]))
-print(np.array([[1,2],[3,4]]))
-print(np.array([1,  2,  3,4,5]))
-print(np.array([1,2,3],dtype=complex))
+
+
+x=np.arange(0,3*np.pi,0.1)
+y=np.sin(x)
+y1=np.cos(x)
+
+plt.subplot(2,1,1)
+plt.title("sin")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.plot(x,y)
+plt.subplot(2,1,2)
+plt.title("cos")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.plot(x,y1)
+plt.show()

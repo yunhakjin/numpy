@@ -1,0 +1,186 @@
+NumPy - 算数运算
+用于执行算术运算(如add()，subtract()，multiply()和divide())的输入数组必须具有相同的形状或符合数组广播规则。
+示例
+import numpy as np
+a = np.arange(9, dtype = np.float_).reshape(3,3)
+print  '第一个数组：'
+print a
+print  '\n'
+print  '第二个数组：'
+b = np.array([10,10,10])
+print b
+print  '\n'
+print  '两个数组相加：'
+print np.add(a,b)
+print  '\n'
+print  '两个数组相减：'
+print np.subtract(a,b)
+print  '\n'
+print  '两个数组相乘：'
+print np.multiply(a,b)
+print  '\n'
+print  '两个数组相除：'
+print np.divide(a,b)
+Python
+输出如下：
+第一个数组：
+[[ 0. 1. 2.]
+ [ 3. 4. 5.]
+ [ 6. 7. 8.]]
+
+第二个数组：
+[10 10 10]
+
+两个数组相加：
+[[ 10. 11. 12.]
+ [ 13. 14. 15.]
+ [ 16. 17. 18.]]
+
+两个数组相减：
+[[-10. -9. -8.]
+ [ -7. -6. -5.]
+ [ -4. -3. -2.]]
+
+两个数组相乘：
+[[ 0. 10. 20.]
+ [ 30. 40. 50.]
+ [ 60. 70. 80.]]
+
+两个数组相除：
+[[ 0. 0.1 0.2]
+ [ 0.3 0.4 0.5]
+ [ 0.6 0.7 0.8]]
+让我们现在来讨论 NumPy 中提供的一些其他重要的算术函数。
+numpy.reciprocal()
+此函数返回参数逐元素的倒数，。 由于 Python 处理整数除法的方式，对于绝对值大于 1 的整数元素，结果始终为 0， 对于整数 0，则发出溢出警告。
+示例
+import numpy as np
+a = np.array([0.25,  1.33,  1,  0,  100])
+print  '我们的数组是：'
+print a
+print  '\n'
+print  '调用 reciprocal 函数：'
+print np.reciprocal(a)
+print  '\n'
+b = np.array([100], dtype =  int)
+print  '第二个数组：'
+print b
+print  '\n'
+print  '调用 reciprocal 函数：'
+print np.reciprocal(b)
+Python
+输出如下：
+我们的数组是：
+[   0.25    1.33    1.      0.    100.  ]
+
+调用 reciprocal 函数：
+main.py:9: RuntimeWarning: divide by zero encountered in reciprocal
+  print np.reciprocal(a)
+[ 4.         0.7518797  1.               inf  0.01     ]
+
+第二个数组：
+[100]
+
+调用 reciprocal 函数：
+[0]
+numpy.power()
+此函数将第一个输入数组中的元素作为底数，计算它与第二个输入数组中相应元素的幂。
+import numpy as np
+a = np.array([10,100,1000])
+print  '我们的数组是；'
+print a
+print  '\n'
+print  '调用 power 函数：'
+print np.power(a,2)
+print  '\n'
+print  '第二个数组：'
+b = np.array([1,2,3])
+print b
+print  '\n'
+print  '再次调用 power 函数：'
+print np.power(a,b)
+Python
+输出如下：
+我们的数组是；
+[  10  100 1000]
+
+调用 power 函数：
+[    100   10000 1000000]
+
+第二个数组：
+[1 2 3]
+
+再次调用 power 函数：
+[        10      10000 1000000000]
+numpy.mod()
+此函数返回输入数组中相应元素的除法余数。 函数numpy.remainder()也产生相同的结果。
+import numpy as np
+a = np.array([10,20,30])
+b = np.array([3,5,7])
+print  '第一个数组：'
+print a
+print  '\n'
+print  '第二个数组：'
+print b
+print  '\n'
+print  '调用 mod() 函数：'
+print np.mod(a,b)
+print  '\n'
+print  '调用 remainder() 函数：'
+print np.remainder(a,b)
+Python
+输出如下：
+第一个数组：
+[10 20 30]
+
+第二个数组：
+[3 5 7]
+
+调用 mod() 函数：
+[1 0 2]
+
+调用 remainder() 函数：
+[1 0 2]
+以下函数用于对含有复数的数组执行操作。
+numpy.real() 返回复数类型参数的实部。
+numpy.imag() 返回复数类型参数的虚部。
+numpy.conj() 返回通过改变虚部的符号而获得的共轭复数。
+numpy.angle() 返回复数参数的角度。 函数的参数是degree。 如果为true，返回的角度以角度制来表示，否则为以弧度制来表示。
+import numpy as np
+a = np.array([-5.6j,  0.2j,  11.  ,  1+1j])
+print  '我们的数组是：'
+print a
+print  '\n'
+print  '调用 real() 函数：'
+print np.real(a)
+print  '\n'
+print  '调用 imag() 函数：'
+print np.imag(a)
+print  '\n'
+print  '调用 conj() 函数：'
+print np.conj(a)
+print  '\n'
+print  '调用 angle() 函数：'
+print np.angle(a)
+print  '\n'
+print  '再次调用 angle() 函数(以角度制返回)：'
+print np.angle(a, deg =  True)
+Python
+输出如下：
+我们的数组是：
+[ 0.-5.6j 0.+0.2j 11.+0.j 1.+1.j ]
+
+调用 real() 函数：
+[ 0. 0. 11. 1.]
+
+调用 imag() 函数：
+[-5.6 0.2 0. 1. ]
+
+调用 conj() 函数：
+[ 0.+5.6j 0.-0.2j 11.-0.j 1.-1.j ]
+
+调用 angle() 函数：
+[-1.57079633 1.57079633 0. 0.78539816]
+
+再次调用 angle() 函数(以角度制返回)：
+[-90. 90. 0. 45.]
